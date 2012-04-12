@@ -14,8 +14,8 @@ class SanityPluginFramework {
     var $plugin_js = array();
 
     // Paths
-    var $css_path = 'css';
-    var $js_path = 'js';
+    var $css_path = 'includes/css';
+    var $js_path = 'includes/js';
     var $plugin_dir = '';
     var $plugin_dir_name = '';
 
