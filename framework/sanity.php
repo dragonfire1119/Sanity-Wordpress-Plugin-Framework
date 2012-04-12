@@ -1,5 +1,14 @@
 <?php
 class SanityPluginFramework {
+	
+	// Turn on PFBC 0 = on or 1 = of
+	var $pfbc = '0';
+	
+	// Turn on redbeanphp 0 = on or 1 = of
+	var $redbeanphp = '0';
+	
+	// Turn on tipTip 0 = on or 1 = of
+	var $tiptip = '0';
 
     // Container variables
     var $view = '';
@@ -33,6 +42,11 @@ class SanityPluginFramework {
             $this->plugin_dir = WP_PLUGIN_DIR.'/'.basename(dirname($here));
         }
         $this->plugin_dir_name = basename(dirname($here));
+		if($this->pfbc == 1) {
+			require_once($this->plugin_dir . 'libs/PFBC/Form.php');
+		} else if($this->redbeanphp == 1) {
+			require_once($this->plugin_dir . 'libs/redbeanphp/rb.php');
+		}
         $this->css_path = WP_PLUGIN_URL.'/'.$this->plugin_dir_name.'/css/';
         $this->js_path = WP_PLUGIN_URL.'/'.$this->plugin_dir_name.'/js/';
         add_action('wp_loaded', array(&$this, 'create_nonce'));
